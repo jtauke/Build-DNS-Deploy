@@ -12,19 +12,22 @@ $PhotonSource = "C:\Photon\photon.ova"
 #Set datastore name
 $DatastoreName = "LocalStorage"
 
-#Set Photon IP Addresses
-$PrimaryIP = "10.0.0.200"
-$SecondaryIP = "10.0.0.210"
 
 #Set Name of Photon VM
 $PhotonVMName = "PHOTON"
 
+#Set Photon Credentials
+$PhotonUser = "root"
+$PhotonPassword = ConvertTo-SecureString -String "@11ianc3" -AsPlainText -Force
 
-#Scripts to run in Photon
 
-$ConfigurePhotonPrimaryIP = 
+#---------------Scripts to run in Photon
 
-$ConfigurePhotonSecondaryIP =
+#Set Photon IP Addresses
+$ConfigurePhotonIP = "PrimaryIP = `"10.0.0.200/24`";
+                      SecondaryIP = `"10.0.0.210`";
+                      sed -i 's/Address.*/Address=10.0.0.200\/24/' /etc/systemd/network/10-eth0-static-en.network"
+
 
 
 #---------------SCRIPT EXECUTION OCCURS BELOW---------------------------------------------
@@ -40,3 +43,5 @@ $PhotonVM = Get-VM -Name $PhotonVMName
 
 #Start Photon VM
 Start-VM -VM $PhotonVM
+
+Invoke-VMScript -ScriptText $ConfigurePhotonIP -VM $PhotonVM -GuestUser $PhotonUser -GuestPassword $PhotonPassword
