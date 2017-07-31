@@ -24,7 +24,9 @@ docker-machine.exe ssh $DockerHostName sudo ip addr add $DockerHostSecondaryIP$N
 docker-machine.exe ssh $DockerHostName docker pull sameersbn/bind:latest
 
 #Start BIND Container
-docker-machine.exe ssh $DockerHostName docker run --name=bind --dns=127.0.0.1 --publish=$DockerHostPrimaryIP':53:53/udp' --publish=$DockerHostSecondaryIP':53:53/udp' --publish=$DockerHostPrimaryIP':10000:10000' --volume=/srv/docker/bind:/data --env='ROOT_PASSWORD=@11ianc3' sameersbn/bind:latest
+docker-machine.exe ssh $DockerHostName docker run -d --name=bind --dns=127.0.0.1 --publish=$DockerHostPrimaryIP':53:53/udp' --publish=$DockerHostSecondaryIP':53:53/udp' --publish=$DockerHostPrimaryIP':10000:10000' --volume=/srv/docker/bind:/data --env='ROOT_PASSWORD=@11ianc3' sameersbn/bind:latest
 
-
-
+#Create persistant boot script to keep IP and start our container
+docker-machine ssh $DockerHostName sudo touch "/var/lib/boot2docker/bootsync.sh"
+docker-machine ssh $DockerHostName sudo chmod +x "/var/lib/boot2docker/bootsync.sh"
+docker-machine ssh $DockerHostName "sudo echo '#!/bin/sh' >> '/var/lib/boot2docker/bootsync.sh'"
