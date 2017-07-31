@@ -2,13 +2,15 @@
 # 7/30/2017
 
 #Set script variables
-$EsxiHost = "192.168.50.156"
-$EsxiUsername = "root"
-$EsxiPassword = "Password123"
-$DockerHostName = "DockerHost"
-$DockerHostPrimaryIP = "192.168.50.200"
-$DockerHostSecondaryIP = "192.168.50.210"
-$NetworkSubnetBits = "/24"
+$EsxiHost = "IP ADDRESS OF ESXI HOST HERE"
+$EsxiUsername = "ESXI USERNAME HERE"
+$EsxiPassword = "ESXI PASSWORD HERE"
+$DockerHostName = "DESIRED CONTAINER HOST NAME"
+$DockerHostPrimaryIP = "CLIENT PRIMARY DNS IP HERE"
+$DockerHostSecondaryIP = "CLIENT SECONDARY IP HERE"
+$NetworkSubnetBits = "CLIENT SUBNET BITS HERE (i.e. /24)"
+
+#----------------SCRIPT EXECUTION OCCURS BELOW, DO NOT EDIT----------------------------------------------------------
 
 #Create Docker host on our ESXI server
 docker-machine create -d vmwarevsphere --vmwarevsphere-vcenter $EsxiHost --vmwarevsphere-username $EsxiUsername --vmwarevsphere-password $EsxiPassword --vmwarevsphere-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v17.06.1-ce-rc2/boot2docker.iso $DockerHostName
