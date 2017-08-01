@@ -2,7 +2,7 @@
 
 Purpose: Provide individualized DNS service for use when building hardware in-house.  Allowing creation of proper DNS records and avoiding reconfiguring of network settings when physically deploying hardware.
 
-## What the script does:
+## What the script does
  1. Collect all required variables
  2. Deploy a Boot2Docker VM to the given ESXI server (note: this process will download the iso from the internet and upload it to the host)
  3. Add a two additonal IPs to the existing NIC (These should match the on-prem DNS)
@@ -16,14 +16,18 @@ Purpose: Provide individualized DNS service for use when building hardware in-ho
 
 **There should be no need to edit anything other than the variables section in this script**
 
-## Prerequisites:
+## Prerequisites
 * Install the Docker client on your local machine
 
-## How to run:
+## How to run
 1. Set Variables 
 2. Open powershell
 3. cd /script/location/
 4. .\DOCKERIZED-DNS-DEPLOY.ps1
+
+## How to Remove
+From your local machine, run the following
+> docker-machine rm $Nameofboot2dockerVM
 
 ## Using BIND via Webmin
 The container we're using comes with a managment web interface that will run on port 10000 using whatever primary IP address is configured in the variable section
