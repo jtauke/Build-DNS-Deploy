@@ -1,6 +1,6 @@
 # Dockerized-DNS-Deploy
 
-Purpose: Provide individualized DNS service for use when building hardware in-house.  Allowing creation of proper DNS records and avoiding reconfiguring of network settings when physically deploying hardware.
+Purpose: Provide individualized DNS service for use when building hardware in-house.  Allowing creation of proper DNS records and avoiding reconfiguration of network settings when physically deploying hardware.
 
 ## What the script does
  1. Collect all required variables
