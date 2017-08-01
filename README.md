@@ -14,7 +14,7 @@ Purpose: Provide individualized DNS service for use when building hardware in-ho
  9. Restart BIND service to apply step 8
  10. Write lines into the script that was created in step 7.  This resets the IP information on boot
 
-# **There should be no need to edit anything other than the variables section in this script**
+# **There should be no need to edit anything other than the variables section of this script**
 
 ## Prerequisites
 * Install the Docker client on your local machine
