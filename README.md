@@ -17,7 +17,7 @@ Purpose: Provide individualized DNS service for use when building hardware in-ho
 **There should be no need to edit anything other than the variables section in this script**
 
 ## Prerequisites:
-*nstall the Docker client on your local machine
+* Install the Docker client on your local machine
 
 ## How to run:
 1. Set Variables 
