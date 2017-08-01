@@ -1,4 +1,4 @@
-# Dockerized-DNS-Deploy
+# Build-DNS-Deploy
 
 Purpose: Provide individualized DNS service for use when building hardware in-house.  Allowing creation of proper DNS records and avoiding reconfiguration of network settings when physically deploying hardware.
 
@@ -23,7 +23,7 @@ Purpose: Provide individualized DNS service for use when building hardware in-ho
 1. Set Variables 
 2. Open powershell
 3. cd /script/location/
-4. .\DOCKERIZED-DNS-DEPLOY.ps1
+4. .\BUild-DNS-DEPLOY.ps1
 
 ## How to Remove
 From your local machine, run the following
